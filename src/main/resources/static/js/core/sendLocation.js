@@ -1,9 +1,9 @@
-   var webMethodBase="http://localhost:8080";   
+   var webMethodBase="http://localhost:4001";   
+   var tiempoRecarga = 10;//cada 10 segundos.
     $(document).ready(function () {
-    	//consumo();
-    	//alert($("#lat").val());
+    	
     	getLocalizacion();
-    	//alert($("#lat").val());
+    	recargar(tiempoRecarga);
     });
     
     function getLocalizacion(){
@@ -14,9 +14,7 @@
             	var lat=posicion.coords.latitude;
             	var lon=posicion.coords.longitude;
             	
-            	consumo(lat,lon);
-            	$("#lat").val(lat);
-            	$("#lon").val(lon);
+            	consumo(lat,lon);            	
             	
         	},function error(){
         		alert("Error");
@@ -28,22 +26,18 @@
     }
     
     function consumo(latitude,longitude) {
-    	alert(latitude+","+longitude);
+    	$("#ll").html(latitude+" "+longitude);
         
         $.ajax({
             type: "GET",
             contentType: "application/json; charset=utf-8",
-            url: webMethodBase+"/saveLocation",
-            //data: JSON.stringify(params),
-            data: {"latitude" :latitude,"longitude":longitude},
-            //data: parameters,
-            //dataType: "json",
+            url: webMethodBase+"/saveLocation",            
+            data: {"latitude" :latitude,"longitude":longitude},            
             dataType: "text",
-            async: false,
-            
+            async: false,            
             success: function (data, textStatus) {
                 if (textStatus == "success") {
-                    alert(data);
+                	asignarFecha();
                 }
             },
             error: function (request, status, error) {
@@ -51,4 +45,17 @@
                 alert(jQuery.parseJSON(request.responseText).Message);
             }
         });
+    }
+    
+    function recargar(segundos) {
+        var tiempoMinuto = (1000)*segundos;
+        setInterval(function () {
+        	getLocalizacion();
+        }, tiempoMinuto);
+    }
+    
+    function asignarFecha(){
+    	var d = new Date();//d.getUTCHours()
+    	var dateTime=d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+    	$("#time").html(dateTime);
     }

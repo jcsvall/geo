@@ -1,4 +1,4 @@
-    var webMethodBase="http://localhost:8080"; 
+    var webMethodBase="http://localhost:4001"; 
     var lati="";
     var long="";    
     $(document).ready(function () {
