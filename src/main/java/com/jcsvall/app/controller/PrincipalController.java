@@ -33,6 +33,15 @@ public class PrincipalController {
 		return new ResponseEntity<String>(retorno, HttpStatus.OK);
 
 	}
+	
+	@GetMapping("test")
+	public ResponseEntity<String> test() {
+
+		String retorno = "Todo bien, OK";
+		return new ResponseEntity<String>(retorno, HttpStatus.OK);
+
+	}
+	
 
 	public void escribirArchivo(String texto) {
 		File archivo = new File("localizacion.txt");
