@@ -19,7 +19,7 @@
             	consumo(lat,lon);            	
             	
         	},function error(){
-        		alert("Error");
+        		console.log("Error en obtencion del la localizacion");
         	});
         }else{
            alert("El navegador no soporta la geolicalización");
@@ -43,7 +43,7 @@
                 }
             },
             error: function (request, status, error) {
-            	console.log(request);
+            	console.log("Error al intentar hacer consumo de servicio saveLocation");
             	//alert(request+"--"+status+"--"+error);
                 //alert(jQuery.parseJSON(request.responseText).Message);
             }
