@@ -11,11 +11,13 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class PrincipalController {
 	@GetMapping("getLocation")
@@ -24,6 +26,7 @@ public class PrincipalController {
 		return new ResponseEntity<String>(retorno, HttpStatus.OK);
 	}
 
+	
 	@GetMapping("saveLocation")
 	public ResponseEntity<String> saveLocation(@RequestParam(value = "latitude") Double latitude,
 			@RequestParam(value = "longitude") Double longitude) {

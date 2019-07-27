@@ -1,4 +1,5 @@
-   var webMethodBase="http://localhost:4001";   
+  // var webMethodBase="http://localhost:4001";   
+   var webMethodBase="http://206.81.1.133:4002";
    var tiempoRecarga = 10;//cada 10 segundos.
     $(document).ready(function () {
     	
@@ -41,8 +42,9 @@
                 }
             },
             error: function (request, status, error) {
-            	alert("Error");
-                alert(jQuery.parseJSON(request.responseText).Message);
+            	console.log(request);
+            	//alert(request+"--"+status+"--"+error);
+                //alert(jQuery.parseJSON(request.responseText).Message);
             }
         });
     }
