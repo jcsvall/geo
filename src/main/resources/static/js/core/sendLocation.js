@@ -1,6 +1,6 @@
   // var webMethodBase="http://localhost:4001";   
-   //var webMethodBase="http://206.81.1.133:4002";
-   var webMethodBase="";
+   var webMethodBase="http://206.81.1.133:4002";
+   //var webMethodBase="";
    var tiempoRecarga = 10;//cada 10 segundos.
     $(document).ready(function () {
     	
