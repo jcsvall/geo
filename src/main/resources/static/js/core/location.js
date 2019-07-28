@@ -48,8 +48,7 @@
     }
     
     function iniciar(){    	
-    	consumo();    	
-    	
+    	consumo();   	
     	var coord={lat: parseFloat(lati), lng: parseFloat(long)};
     	
     	mapa = new google.maps.Map(document.getElementById('map'), {
@@ -60,6 +59,9 @@
     }
     
     function addMarker(){
+       consumo();
+       var coord={lat: parseFloat(lati), lng: parseFloat(long)};
+    	
     	var marker = new google.maps.Marker({
             position:coord,
             map:mapa
