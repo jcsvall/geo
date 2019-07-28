@@ -85,7 +85,7 @@ public class PrincipalController {
 				texto = fileList.get(fileList.size() - 1);
 			}
             
-			if(cantidad>10) {
+			if(cantidad>100) {
 				File archivo = new File("localizacion.txt");
 				if(!archivo.delete()) {
 					System.out.println("El archivo no se elimino");
