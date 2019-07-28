@@ -56,9 +56,12 @@
             zoom: 15
           });
   
+    	image = 'http://x.com/x_icon.gif';
     	marker = new google.maps.Marker({
             position:coord,
-            map:mapa
+            map:mapa,
+            icon: image,
+            title:"Hello World!"
           });
     	
     	setPositionMarker();    	
