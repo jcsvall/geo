@@ -1,6 +1,6 @@
     //var webMethodBase="http://localhost:4001"; 
     var webMethodBase=""; 
-    var tiempoRecarga = 10;//cada 10 segundos.
+    var tiempoRecarga = 5;//cada 10 segundos.
     var lati="";
     var long="";    
     var marker;
