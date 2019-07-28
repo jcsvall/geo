@@ -61,7 +61,7 @@
             position:coord,
             map:mapa,
             //icon: image
-            title:"Posición: "+coord
+            title:"Posición: "+coord.lat+" "+coord.lng
           });
     	
     	setPositionMarker();    	
