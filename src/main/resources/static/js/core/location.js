@@ -3,7 +3,7 @@
     var tiempoRecarga = 10;//cada 10 segundos.
     var lati="";
     var long="";    
-    var mapa;
+    var marker;
     $(document).ready(function () {
     	recargar(tiempoRecarga);
     });
@@ -11,7 +11,7 @@
     function recargar(segundos) {
         var tiempoMinuto = (1000)*segundos;
         setInterval(function () {
-        	addMarker();
+        	setPositionMarker();
         }, tiempoMinuto);
     }
     
@@ -51,21 +51,24 @@
     	consumo();   	
     	var coord={lat: parseFloat(lati), lng: parseFloat(long)};
     	
-    	mapa = new google.maps.Map(document.getElementById('map'), {
+    	var mapa = new google.maps.Map(document.getElementById('map'), {
             center: coord,
             zoom: 15
           });
-    	addMarker();    	
-    }
-    
-    function addMarker(){
-       consumo();
-       var coord={lat: parseFloat(lati), lng: parseFloat(long)};
-    	
-    	var marker = new google.maps.Marker({
+  
+    	marker = new google.maps.Marker({
             position:coord,
             map:mapa
           });
+    	
+    	setPositionMarker();    	
+    }
+    
+    function setPositionMarker(){
+       consumo();
+       var coord={lat: parseFloat(lati), lng: parseFloat(long)};
+       marker.setPosition(coord);	
+    	
     }
     
     
