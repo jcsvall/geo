@@ -11,7 +11,7 @@
     function recargar(segundos) {
         var tiempoMinuto = (1000)*segundos;
         setInterval(function () {
-        	iniciar();
+        	addMarker();
         }, tiempoMinuto);
     }
     
@@ -52,23 +52,17 @@
     	
     	var coord={lat: parseFloat(lati), lng: parseFloat(long)};
     	
-    	map = new google.maps.Map(document.getElementById('map'), {
+    	mapa = new google.maps.Map(document.getElementById('map'), {
             center: coord,
             zoom: 15
           });
-    	
-    	var marker = new google.maps.Marker({
-            position:coord,
-            map:map,
-            title="Prueba"
-          });    	
+    	addMarker();    	
     }
     
     function addMarker(){
     	var marker = new google.maps.Marker({
             position:coord,
-            map:mapa,
-            title="Prueba"
+            map:mapa
           });
     }
     
