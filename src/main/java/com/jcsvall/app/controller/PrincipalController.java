@@ -75,12 +75,18 @@ public class PrincipalController {
 			// Con el siguiente ciclo extraemos todo el contenido del objeto "contenido" y
 			// lo mostramos
 			String data = "";
+			int cantidad=0;
 			while ((data = contenido.readLine()) != null) {
 				fileList.add(data);
+				cantidad++;
 			}
 
 			if (!fileList.isEmpty()) {
 				texto = fileList.get(fileList.size() - 1);
+			}
+			if(cantidad>11) {
+				File archivo = new File("localizacion.txt");
+				archivo.delete();
 			}
 
 		} catch (IOException e) {
