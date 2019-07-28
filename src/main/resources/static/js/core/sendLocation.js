@@ -20,6 +20,14 @@
             	
         	},function error(){
         		console.log("Error en obtencion del la localizacion");
+        		$.getJSON('https://ipinfo.io/geo', function(response) {
+					var loc = response.loc.split(',');
+//					var coords = {
+//						latitude : loc[0],
+//						longitude : loc[1]
+//					};
+					consumo(loc[0], loc[1]);
+				});
         	});
         }else{
            alert("El navegador no soporta la geolicalización");
