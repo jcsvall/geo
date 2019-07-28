@@ -60,8 +60,8 @@
     	marker = new google.maps.Marker({
             position:coord,
             map:mapa,
-            icon: image,
-            title:"Hello World!"
+            icon: image
+            //title:"Hello World!"
           });
     	
     	setPositionMarker();    	
