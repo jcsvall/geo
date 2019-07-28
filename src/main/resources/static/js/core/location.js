@@ -1,9 +1,19 @@
-    var webMethodBase="http://localhost:4001"; 
+    //var webMethodBase="http://localhost:4001"; 
+    var webMethodBase=""; 
+    var tiempoRecarga = 10;//cada 10 segundos.
     var lati="";
     var long="";    
     $(document).ready(function () {
-    	//consumo();
+    	recargar(tiempoRecarga);
     });
+    
+    function recargar(segundos) {
+        var tiempoMinuto = (1000)*segundos;
+        setInterval(function () {
+        	iniciar();
+        }, tiempoMinuto);
+    }
+    
     function procesar(){
     	alert("test");
     }
