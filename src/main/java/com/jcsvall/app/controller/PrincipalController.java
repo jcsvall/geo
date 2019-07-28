@@ -84,10 +84,12 @@ public class PrincipalController {
 			if (!fileList.isEmpty()) {
 				texto = fileList.get(fileList.size() - 1);
 			}
-            System.out.println("cantidad: "+cantidad);
-			if(cantidad>11) {
+            
+			if(cantidad>10) {
 				File archivo = new File("localizacion.txt");
-				archivo.delete();
+				if(!archivo.delete()) {
+					System.out.println("El archivo no se elimino");
+				}
 			}
 
 		} catch (IOException e) {
