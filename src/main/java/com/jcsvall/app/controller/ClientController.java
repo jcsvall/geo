@@ -27,4 +27,10 @@ public class ClientController {
 		
 		return "sendLocation";
 	}
+	
+	@GetMapping("/websocket")
+	public String websocket() {
+				
+		return "websocket";
+	}
 }
