@@ -22,7 +22,7 @@ function setConnected(connected) {
 }
 
 function connect() {
-	ws = new WebSocket('ws://localhost:4002/user');
+	ws = new WebSocket('ws://localhost:4002/pruebajc');
 	ws.onmessage = function(data) {
 		helloWorld(data.data);
 	}

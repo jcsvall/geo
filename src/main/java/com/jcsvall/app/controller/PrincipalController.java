@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,17 +27,21 @@ public class PrincipalController {
 		return new ResponseEntity<String>(retorno, HttpStatus.OK);
 	}
 
-	
 	@GetMapping("saveLocation")
 	public ResponseEntity<String> saveLocation(@RequestParam(value = "latitude") Double latitude,
 			@RequestParam(value = "longitude") Double longitude) {
 
-		String retorno = "latitude: " + latitude + " longitude: " + longitude;
-		escribirArchivo(latitude + "," + longitude + ",Date: " + new Date() + "\n");
+		DecimalFormat df = new DecimalFormat("#.0000");
+		String latitudeStr = df.format(latitude);
+		String longitudeStr = df.format(longitude);
+
+		String retorno = "latitude: " + latitudeStr + " longitude: " + longitudeStr;
+
+		escribirArchivo(latitudeStr + "," + longitudeStr + ",Date: " + new Date() + "\n");
 		return new ResponseEntity<String>(retorno, HttpStatus.OK);
 
 	}
-	
+
 	@GetMapping("test")
 	public ResponseEntity<String> test() {
 
@@ -44,7 +49,6 @@ public class PrincipalController {
 		return new ResponseEntity<String>(retorno, HttpStatus.OK);
 
 	}
-	
 
 	public void escribirArchivo(String texto) {
 		File archivo = new File("localizacion.txt");
@@ -75,7 +79,7 @@ public class PrincipalController {
 			// Con el siguiente ciclo extraemos todo el contenido del objeto "contenido" y
 			// lo mostramos
 			String data = "";
-			int cantidad=0;
+			int cantidad = 0;
 			while ((data = contenido.readLine()) != null) {
 				fileList.add(data);
 				cantidad++;
@@ -84,10 +88,10 @@ public class PrincipalController {
 			if (!fileList.isEmpty()) {
 				texto = fileList.get(fileList.size() - 1);
 			}
-            
-			if(cantidad>100) {
+
+			if (cantidad > 100) {
 				File archivo = new File("localizacion.txt");
-				if(!archivo.delete()) {
+				if (!archivo.delete()) {
 					System.out.println("El archivo no se elimino");
 				}
 			}
