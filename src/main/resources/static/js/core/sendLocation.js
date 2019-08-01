@@ -16,8 +16,8 @@
             	var lat=posicion.coords.latitude;
             	var lon=posicion.coords.longitude;
             	
-            	lat=lat.substring(0,lat.length-3);
-            	lon=lon.substring(0,lon.length-3);
+            	lat=lat.toFixed(4);
+            	lon=lon.toFixed(4);
             	consumo(lat,lon);            	
             	
         	},function error(){
@@ -38,6 +38,7 @@
     }
     
     function consumo(latitude,longitude) {
+    	console.log(latitude+" "+longitude);
     	$("#ll").html(latitude+" "+longitude);
         
         $.ajax({
